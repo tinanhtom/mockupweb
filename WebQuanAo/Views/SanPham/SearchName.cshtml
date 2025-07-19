@@ -1,0 +1,75 @@
+﻿@model IEnumerable<WebShop.Model.SanPham>
+@{
+    ViewBag.Title = "Detailes";
+    Layout = "~/Views/Shared/P_Layout.cshtml";
+
+}
+
+@*@using (Html.BeginForm("SearchName", "SanPham", FormMethod.Get))
+{
+    @Html.TextBox("searchString")<input type="submit" value="Search" />
+}*@
+<table class="table table-striped">
+    @*<thead>
+        <tr>
+            <th>Ma San Pham</th>
+            <th>Ten San Pham</th>
+            <th>Mo ta </th>
+        </tr>
+    </thead>*@
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3" style="color:Background">
+                  Không tìm thấy sản phẩm mà bạn tìm kiếm TT.TT
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-md-3 top_brand_left">
+    <div class="hover14 column">
+        <div class="agile_top_brand_left_grid">
+            @*<div class="tag"><img src="~/Content/images/tag.png" alt=" " class="img-responsive" /></div>*@
+            <div class="agile_top_brand_left_grid1">
+                <figure>
+                    <div class="snipcart-item block">
+                        <div class="snipcart-thumb">
+                            @*<a href="@Url.Action("Detailes","Home",new { id=@item.MaSanPham})"><img title=" " alt=" " src="/Content/images/@item.HinhMinhHoa" class="img-responsive" /></a>*@
+                            <a href="@Url.Action("Detailes","Home",new { id=item.MaSanPham})">
+                                <img title=" " alt=" " src="@item.HinhMinhHoa" @*width="70" height="70" margin-top=5px*@ class="img-responsive" />
+                            </a>
+                            <p>@item.TenSanPham</p>
+                            <h4>@item.DonGia</h4>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details">
+                            <form action="checkout.html" method="post">
+                                <fieldset>
+                                    @*<input type="hidden" name="cmd" value="_cart" />
+                                        <input type="hidden" name="add" value="1" />
+                                        <input type="hidden" name="business" value=" " />
+                                        <input type="hidden" name="item_name" value="Set váy cho bé" />
+                                        <input type="hidden" name="amount" value="280000" />
+                                        <input type="hidden" name="discount_amount" value="50000" />
+                                        <input type="hidden" name="currency_code" value="VND" />
+                                        <input type="hidden" name="return" value=" " />
+                                        <input type="hidden" name="cancel_return" value=" " />*@
+                                    <a href="/ShoppingCart/addtocart/@item.MaSanPham/" class="btn btn-default" style="color:red">Add to cart</a>
+                                </fieldset>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+            }
+        }
+    </tbody>
+</table>

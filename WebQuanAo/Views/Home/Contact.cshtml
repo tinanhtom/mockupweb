@@ -1,0 +1,116 @@
+﻿@using WebQuanAoNamNu1.Model;
+@{
+    ViewBag.Title = "Contact";
+    List<SanPham> listSanPhamMoi = ViewBag.SanPhamMoi;
+    List<SanPham> listSanPhamBanChay = ViewBag.SanPhamBanChay;
+}
+
+<section class="google_map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.460556613037!2d106.66518151474894!3d10.775994592321851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3ae5901877%3A0x42c37972de865906!2zODI4IFPGsCBW4bqhbiBI4bqhbmgsIFBoxrDhu51uZyAxMiwgUXXhuq1uIDEwLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1620052786277!5m2!1svi!2s" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+<section class="main-content">
+    <div class="row">
+        <div class="span5" style="text-align :center">
+            <div>
+                <h2 style="margin-right: 20px;">@*Nếu bạn có yêu cầu hay phản hồi gì, đừng ngại liên hệ với chúng tôi*@THÔNG TIN LIÊN HỆ</h2>
+                <p style="text-align: center">
+                    <strong>Địa chỉ: </strong>828 Sư Vạn Hạnh, Phường 13, Quận 10, TP HCM <br>
+                    <strong>SĐT: </strong>&nbsp;0123456789<br>
+                    <strong>Email:</strong>&nbsp;<a>shoppingonline@gmail.com</a>
+                </p>
+            </div>
+        </div>
+        <div class="span7" style="text-align :center">
+            <p style="text-align:center"> Nếu bạn có yêu cầu hay phản hồi gì, đừng ngại liên hệ với chúng tôi</p>
+            <!--
+            {
+                <form method="post" action="#">
+                    <fieldset>
+                        <hr />
+                        <p>
+                            <div class="clearfix" style="padding-right:800px;">
+
+                                <div class="input">
+                                    <label for="name"><span>Họ Tên:</span></label>
+                                    <input tabindex="1" size="40" id="name" name="NameFeedback" type="text" class="input-xlarge" placeholder="">
+                                </div>
+                            </div>
+                        </p>
+                        <p>
+                            <div class="clearfix" style="padding-right:790px; padding-top:12px;">
+
+                                <div class="input">
+                                    <label for="email"><span>Email:</span></label>
+                                    <input tabindex="2" size="40" id="email" name="MailFeedback" type="text" class="input-xlarge" placeholder="">
+                                </div>
+                            </div>
+                        </p>
+                        <div class="clearfix" style="padding-right:995px; padding-top:12px;">
+
+                            <div class="input">
+                                <label for="message"><span>Lời nhắn:</span></label>
+                                <textarea tabindex="2" size="80" id="message" name="Motafeedback" type="text" class="input-xlarge" placeholder=""></textarea>-->
+            @*<textarea tabindex="3" class="input-xlarge" id="message" name="body" rows="7" placeholder=""></textarea>*@
+            <!--</div>
+                            </div>
+
+                            <div class="actions">
+                                <button tabindex="3" type="submit" class="btn btn-inverse">Gửi lời nhắn</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                }
+            </div>-->
+            @using (Html.BeginForm("Feedback", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="form4 top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7 col-md-offset-2">
+                                <div class="form-bg">
+                                    <form class="form">
+                                        <div class="clearfix">  <label for="name"></label> <input tabindex="1" type="text" name="NameFeedback" class="form-control" required="" id="name" placeholder="Nhập họ tên...*"> </div>
+                                        <div class="clearfix"> <label for="email"></label> <input tabindex="2" type="email" name="MailFeedback" class="form-control" required="" id="email" placeholder="Nhập email...*"> </div>
+                                        <div class="clearfix"> <label for="message"></label> <textarea tabindex="2" size="80" id="message" name="Motafeedback" type="text" class="form-control" placeholder="Nhập lời nhắn vào...*"></textarea> </div>
+                                        <button type="submit" class="btn text-center btn-blue" style="color:#ffffff; border:#FF6A00;background-color:#FF6A00;">Gửi lời nhắn</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @*<div class="span3 col">
+                    <div class="block">
+                        <h4 class="title"><strong>Có thể</strong> Bạn thích</h4>
+                        @foreach (var item in listCoTheBanThich)
+                        {
+                            <ul class="small-product">
+                                <li>
+                                    <a href="@Url.Action("ProductDetail", "ProductDetail", new { id = item.ProductID })" title="">
+                                        <img src="@Url.Content(item.Image)" alt="">
+                                    </a>
+                                    <a href="@Url.Action("ProductDetail", "ProductDetail", new { id = item.ProductID })">@item.ProductName</a>
+                                </li>
+                            </ul>
+                        }
+                    </div>
+                    <div class="block">
+                        <h4 class="title"><strong>Sản phẩm </strong>mới nhất</h4>
+                        @foreach (var item in listTrangSanPhamMoi)
+                        {
+                            <ul class="small-product">
+                                <li>
+                                    <a href="@Url.Action("ProductDetail", "ProductDetail", new { id = item.ProductID })" title="">
+                                        <img src="@Url.Content(item.Image)" alt="">
+                                    </a>
+                                    <a href="@Url.Action("ProductDetail", "ProductDetail", new { id = item.ProductID })">@item.ProductName</a>
+                                </li>
+                            </ul>
+                        }
+                    </div>
+                </div>*@
+        </div>
+
+</section>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WebShop.Model.DatHang>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.SoHoaDon)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaChiKhachHang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayDatHang)
+            </th>
+            <th>
+                Chi tiết đơn hàng
+            </th>
+            
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.SoHoaDon)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.KhachHang.TenKhachHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChiKhachHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDatHang)
+        </td>
+
+        <td>
+            <a href="/Administrator/ChiTietDatHang/Index" style="color:crimson"><i class="fa fa-edit" style="color:crimson"></i>Chi tiết đặt hàng</a>
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.SoHoaDon }) |
+            @Html.ActionLink("Details", "Details", new { id = item.SoHoaDon }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.SoHoaDon })
+        </td>
+    </tr>
+    }
+    
+    </table>
+</body>
+</html>

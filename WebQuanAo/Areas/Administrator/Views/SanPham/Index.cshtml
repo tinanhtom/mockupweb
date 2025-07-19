@@ -1,0 +1,108 @@
+﻿@model IEnumerable<WebShop.Model.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table table-bordered table-hover">
+    <tr>
+
+        <th>
+            Mã Sản Phẩm
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenSanPham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChatLieu.TenChatLieu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoiTuong.TenDoiTuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KichCo.TenKichCo)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.TheLoai.TenTheLoai)
+        </th>
+
+        
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayCapNhat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhMinhHoa)
+        </th>
+        <th>
+            Tên admin tạo
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaSanPham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSanPham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChatLieu.TenChatLieu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoiTuong.TenDoiTuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KichCo.TenKichCo)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.TheLoai.TenTheLoai)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayCapNhat)
+            </td>
+            <td>
+                <img src="@item.HinhMinhHoa" width="50" height="50" />
+                @*@Html.DisplayFor(modelItem => item.HinhMinhHoa)*@
+            </td>
+            <td> <h2>@Session["username"]</h2></td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaSanPham }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaSanPham }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaSanPham })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebShop.Model.NhaSanXuat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenNhaSanXuat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaChiNhaSanXuat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DienThoaiNhaSanXuat)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNhaSanXuat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChiNhaSanXuat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DienThoaiNhaSanXuat)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.MaNhaSanXuat }) |
+                @Html.ActionLink("Details", "Details", new { id=item.MaNhaSanXuat }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.MaNhaSanXuat })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
